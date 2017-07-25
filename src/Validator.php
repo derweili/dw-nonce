@@ -47,6 +47,13 @@ class Validator
         return 1;
     }
 
+    $nonce_check = $this->hash($this->get_reference(-1));
+    if (hash_equals($expected, $nonce)) {
+        return 2;
+    }
+
+    return false;
+
   }
 
 
