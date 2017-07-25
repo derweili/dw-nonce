@@ -16,6 +16,8 @@ $ composer install
 use Derweili\DwNonces\Config;
 
 Config::set_salt( $salt );
+Config::set_user_id( $user_id );
+
 ```
 Overwrite default configurations
 ```php

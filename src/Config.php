@@ -23,6 +23,11 @@ class Config
   private static $salt;
 
   /**
+   * @var string
+   */
+  private static $user_id;
+
+  /**
     * @param string $salt
     */
   public static function set_lifetime($lifetime)
@@ -41,13 +46,29 @@ class Config
   /**
     * @param string $salt
     */
+  public static function set_user_id($user_id)
+  {
+      self::$user_id = (string)$user_id;
+  }
+
+  /**
+    * @return string
+    */
+  public static function get_user_id()
+  {  
+      return self::$user_id;
+  }
+
+  /**
+    * @param string $salt
+    */
   public static function set_salt($salt)
   {
       self::$salt = (string)$salt;
   }
 
   /**
-    * @return string $salt
+    * @return string
     */
   public static function get_salt()
   {  
@@ -55,7 +76,7 @@ class Config
   }
 
   /**
-    * @param string $salt
+    * @param string $algorithm
     */
   public static function set_algorithm($algorithm)
   {

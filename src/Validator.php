@@ -33,6 +33,11 @@ class Validator
   private $salt;
 
   /**
+   * @var string
+   */
+  private $user_id;
+
+  /**
    * @var string|int
    */
   private $action;
@@ -47,6 +52,7 @@ class Validator
     $this->algorithm    = $config->get_algorithm();
     $this->lifetime     = $config->get_lifetime();
     $this->salt         = $config->get_salt();
+    $this->user_id      = $config->get_user_id();
   }
 
   /**
@@ -60,17 +66,17 @@ class Validator
     $this->nonce  = $nonce;
     $this->action = $action;
 
-    if (empty($nonce)) {
+    if ( empty($nonce )) {
         return false;
     }
 
     $nonce_check = $this->get_encrypted( $this->get_reference() );
-    if ( hash_equals( $nonce_check, $nonce ) ) {
-        return 1;
+    if ( \hash_equals( $nonce_check, $nonce ) ) {
+        return true;
     }
 
-    $nonce_check = $this->hash($this->get_reference(-1));
-    if (hash_equals($expected, $nonce)) {
+    $nonce_check = $this->get_encrypted($this->get_reference(-1));
+    if ( \hash_equals( $nonce_check, $nonce )) {
         return 2;
     }
 

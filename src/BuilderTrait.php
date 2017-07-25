@@ -25,6 +25,9 @@ trait BuilderTrait
 
       $string = $this->action;
       $string .= ( $this->get_timesstamp( $time_adjust ) );
+      if ($this->user_id) {
+          $string .= $this->user_id;
+      }
       return $string;
 
     }

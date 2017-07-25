@@ -36,6 +36,11 @@ class Nonce
   private $salt;
 
   /**
+   * @var string
+   */
+  private $user_id;
+
+  /**
    * @var string|int
    */
   private $action;
@@ -52,6 +57,7 @@ class Nonce
     $this->algorithm    = $config->get_algorithm();
     $this->lifetime     = $config->get_lifetime();
     $this->salt         = $config->get_salt();
+    $this->user_id      = $config->get_user_id();
 
   }
 
