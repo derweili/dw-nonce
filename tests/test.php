@@ -11,9 +11,9 @@ $salt = 'Md[6@@zALZW_KNiBaZZx.d3+`Wx>DM01dmY[M-+)6V%+92J2OzsA{%(d$k%Qgc<t';
 Config::set_salt($salt);
 
 
-$my_nonce = new Nonce( 'contact_form ');
+echo new Nonce( 'contact_form ');
 
-echo $my_nonce->get();
+//echo $my_nonce->get();
 echo '<br>';
 
 $test_nonce = '9b6141d7cb3';

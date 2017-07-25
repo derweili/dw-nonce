@@ -12,15 +12,35 @@ class Validator
 
   use BuilderTrait;
 
+  /**
+   * @var object
+   */
   private $config;
 
-  private $algorithm;
+  /**
+   * @var string
+   */
+  private $algorithm = 'sha256';
 
-  private $lifetime;
+  /**
+   * @var int
+   */
+  private $lifetime = 86400;
 
+  /**
+   * @var string
+   */
   private $salt;
 
-  function __construct()
+  /**
+   * @var string|int
+   */
+  private $action;
+
+  /**
+   * Validator constructor
+   */
+  public function __construct()
   {
     $config = new Config();
 
