@@ -1,5 +1,5 @@
 {
-  "name": "derweili/DwNonces",
+  "name": "derweili/dw-nonce",
   "description": "Use nonces in an object-oriented php project.",
   "license": "GPL",
   "authors": [
