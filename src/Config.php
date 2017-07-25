@@ -14,7 +14,7 @@ class Config
   /**
    * @var int
    */
-  private static $lifetime = 86400;
+  public static $lifetime = 86400;
   /**
    * @var string
    */
@@ -25,7 +25,7 @@ class Config
     */
   public function get_lifetime()
   {
-      return self::$lifespan;
+      return self::$lifetime;
   }
 
   /**
