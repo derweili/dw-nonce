@@ -3,6 +3,9 @@ namespace Derweili\DwNonces;
 
 /**
  * Configuration class to store settings
+ * @version 1.0
+ * @author Julian Weiland
+ * @package Derweili\DwNonces
  */
 class Config
 {

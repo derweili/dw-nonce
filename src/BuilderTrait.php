@@ -1,6 +1,9 @@
 <?php
 /**
  * Builder Trait that includes methods for nonce creation
+ * @version 1.0
+ * @author Julian Weiland
+ * @package Derweili\DwNonces
  */
 
 namespace Derweili\DwNonces;

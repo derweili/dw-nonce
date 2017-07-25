@@ -3,6 +3,7 @@
  * Validate nonces in php
  * @version 1.0
  * @author Julian Weiland
+ * @package Derweili\DwNonces
  **/
 
 namespace Derweili\DwNonces;
