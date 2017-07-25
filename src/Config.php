@@ -11,14 +11,24 @@ class Config
    * @var string
    */
   private static $algorithm = 'sha256';
+
   /**
    * @var int
    */
   public static $lifetime = 86400;
+
   /**
    * @var string
    */
   private static $salt;
+
+  /**
+    * @param string $salt
+    */
+  public static function set_lifetime($lifetime)
+  {
+      self::$lifetime = (int)$lifetime;
+  }
 
   /**
     * @return int
@@ -43,6 +53,14 @@ class Config
   {  
       return self::$salt;
   }
+
+  /**
+    * @param string $salt
+    */
+  public static function set_algorithm($algorithm)
+  {
+      self::$algorithm = (string)$algorithm;
+  }
   /**
     * @return string
     */
@@ -50,5 +68,6 @@ class Config
   {
       return self::$algorithm;
   }
+  
 
 }
