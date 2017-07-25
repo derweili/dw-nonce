@@ -71,12 +71,12 @@ class Validator
     }
 
     $nonce_check = $this->get_encrypted( $this->get_reference() );
-    if ( \hash_equals( $nonce_check, $nonce ) ) {
-        return true;
+    if ( hash_equals( $nonce_check, $nonce ) ) {
+        return 1;
     }
 
     $nonce_check = $this->get_encrypted($this->get_reference(-1));
-    if ( \hash_equals( $nonce_check, $nonce )) {
+    if ( hash_equals( $nonce_check, $nonce )) {
         return 2;
     }
 

@@ -21,7 +21,6 @@ class NonceTest extends PHPUnit_Framework_TestCase
     public function test_nonce_generation(){
         $nonce = new Nonce( 'my_form' );
         $this->assertNotEquals( null, $nonce->get() );
-        $this->assertNotEquals( $nonce->get(), (string)$nonce);
 
     }
 

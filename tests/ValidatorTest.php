@@ -30,12 +30,10 @@ class ValidatorTest extends PHPUnit_Framework_TestCase
     {
 
         $nonce = new Nonce( $this->action );
-        $validator = new Validator();
-        $this->assertNotEquals( 1, $validator->verify( $nonce->get(), $this->action ) );
-        
-        Config::set_lifetime( 2000 );
 
-        $this->assertEquals( 2000, Config::get_lifetime() );
+        $validator = new Validator();
+
+        $this->assertEquals( 1, $validator->verify( $nonce->get(), $this->action ) );
 
     }
 

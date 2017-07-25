@@ -38,7 +38,7 @@ class Config
   /**
     * @return int
     */
-  public function get_lifetime()
+  public static function get_lifetime()
   {
       return self::$lifetime;
   }
