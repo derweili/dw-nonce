@@ -13,13 +13,21 @@ class Nonce
 {
 
   private $action;
+  
+  private $config;
+
+  private $algorithm;
+
+  private $lifetime;
+
+  private $salt;
 
 
   public function __construct( $action = -1 ){
 
     $this->action = $action;
     $config = new Config();
-    
+
     $this->algorithm    = $config->get_algorithm();
     $this->lifetime     = $config->get_lifetime();
     $this->salt         = $config->get_salt();
@@ -27,10 +35,10 @@ class Nonce
   }
 
   /**
-  * Generates the nonce string
-  *
-  * @return string
-  */
+   * Generates the nonce string
+   *
+   * @return string
+   */
   public function get(){
 
     return $this->get_encrypted( $this->get_reference() );
@@ -42,17 +50,20 @@ class Nonce
     return substr( hash_hmac( $this->algorithm, $message, $this->salt ), -12, 10 );
   }
 
-  private function get_reference(){
+  private function get_reference( $time_adjust = 0 ){
 
     $string = $this->action;
-    $string .= $this->get_timesstamp();
+    $string .= ( $this->get_timesstamp( $time_adjust ) );
     return $string;
 
   }
 
-
-  private function get_timesstamp(){
-    return ceil(time() / ($this->lifetime / 2));
+  /**
+   * @param int $time_adjust
+   * @return float
+   */
+  private function get_timesstamp( $time_adjust = 0 ){
+    return ceil(time() / ($this->lifetime / 2)) + $time_adjust;
   }
 
 
