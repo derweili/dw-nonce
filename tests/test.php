@@ -2,8 +2,10 @@
 
 require_once __DIR__ . '/../vendor/autoload.php'; // Autoload files using Composer autoload
 
-use DwNonce\NonceService;
+use Derweili\DwNonces\Config;
 
-$ns = new NonceService( 'nonce', 'root', 'root' );
+$salt = 'Md[6@@zALZW_KNiBaZZx.d3+`Wx>DM01dmY[M-+)6V%+92J2OzsA{%(d$k%Qgc<t';
 
-//echo $ns->create_nonce( 'action' );
+Config::set_salt($salt);
+
+echo Config::get_salt();
